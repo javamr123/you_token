@@ -21,46 +21,23 @@ class _CardData {
 }
 
 final Map<_Page, List<_CardData>> _allPages = <_Page, List<_CardData>>{
-  _Page(label: '资产账户'): <_CardData>[
-    /*_CardData(
-      name: "BTC",
-      enable: '4.000000',
-      disable: '0.00000',
-      amount: '0.00000',
-    ),
+  _Page(label: '资产'): <_CardData>[
     _CardData(
       name: 'ETH',
-      enable: '3.000000',
-      disable: '0.00000',
-      amount: '0.00000',
-    ),*/
-    _CardData(
-      name: 'G A',
       enable: 0,
       disable: 0,
       amount: 0,
     ),
-    /* _CardData(
-      name: 'GABC',
-      enable: 0,
-      disable: 0,
-      amount: 0,
-    )*/
+
   ],
-  _Page(label: '释放账户'): <_CardData>[
+  _Page(label: '收藏'): <_CardData>[
     _CardData(
-      name: 'G A',
+      name: 'ETH',
       enable: 0,
       disable: 0,
       amount: 0,
     ),
-    /* _CardData(
-      name: 'GABC',
-       enable: 0,
-       disable: 0,
-       amount: 0,
-    ),*/
-  ],
+  ]
 };
 
 class _CardDataItem extends StatelessWidget {
@@ -71,89 +48,37 @@ class _CardDataItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData queryData = MediaQuery.of(context);
-    final size = MediaQuery
-        .of(context)
-        .size;
-    final width = size.width;
-
     return GestureDetector(
       onTap: () {},
-      child: Column(
-        children: <Widget>[
-          Row(
+        child: Container(
+          height: 50.0,
+          child: Row(
             children: <Widget>[
               Container(
-                child: Text(
-                  data.name,
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                child: Image(image: AssetImage('lib/images/eth.jpg')),
               ),
-              Expanded(
-                child: Container(
-                  padding: EdgeInsets.only(left: 230.0),
-                  child: Icon(
-                    Icons.chevron_right,
-                    color: Color.fromRGBO(190, 204, 214, 0.8),
-                  ),
-                  alignment: Alignment.topRight,
-                ),
-              )
+              Container(
+                margin: EdgeInsets.only(left: 20.0),
+                child: Text('ETH', style: TextStyle(fontSize: 20.0),),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width-220.0,),
+              Column(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(top: 10.0),
+                      child: Text('0'),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text('￥'),
+                        Text('0.00')
+                      ],
+                    )
+                  ],
+                )
             ],
           ),
-          const SizedBox(
-            height: 5.0,
-          ),
-          Row(
-            children: <Widget>[
-              Container(
-                width: width / 3,
-                padding: EdgeInsets.only(top: 5.0),
-                child: Text('可用',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    )),
-              ),
-              Container(
-                width: width / 3,
-                padding: EdgeInsets.only(top: 5.0),
-                child: Text('冻结',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    )),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 5.0),
-                child: Text('折合(CNY)',
-                    style: TextStyle(
-                      color: Colors.grey,
-                    )),
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Container(
-                width: width / 3,
-                padding: EdgeInsets.only(top: 5.0),
-                child: Text("${data.enable}"),
-              ),
-              Container(
-                width: width / 3,
-                padding: EdgeInsets.only(top: 5.0),
-                child: Text("${data.disable}"),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 5.0),
-                child: Text("${data.amount}"),
-              ),
-            ],
-          ),
-          Divider(
-            color: Color.fromRGBO(186, 191, 195, 0.5),
-          ),
-        ],
-      ),
+        ),
     );
   }
 }
@@ -216,7 +141,7 @@ class _TabsDemo extends State<TabsDemo> {
                             horizontal: 16.0,
                           ),
                           sliver: SliverFixedExtentList(
-                            itemExtent: 100.0,
+                            itemExtent: 65.0,
                             delegate: SliverChildBuilderDelegate(
                                   (BuildContext context, int index) {
                                 final _CardData data = _allPages[page][index];
