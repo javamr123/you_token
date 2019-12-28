@@ -27,7 +27,7 @@ class _Navigation extends State<Navigation>{
               ),
               BottomNavigationBarItem(
                 icon: Icon(CupertinoIcons.home),
-                title: Text('交易'),
+                title: Text('租房'),
               ),
               BottomNavigationBarItem(
                 icon: Icon(CupertinoIcons.search),

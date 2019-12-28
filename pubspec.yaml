@@ -19,6 +19,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  build_runner: ^1.0.0
+  json_serializable: ^2.0.0
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -27,7 +30,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -45,6 +47,7 @@ flutter:
     - lib/images/head_bg.jpg
     - lib/images/eth.jpg
     - lib/images/bg.jpg
+    - lib/other/province.json
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
